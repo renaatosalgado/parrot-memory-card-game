@@ -1,0 +1,81 @@
+body {
+  background-color: #eef9bf;
+}
+
+.title {
+  font-size: 72pt;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  color: #75b79e;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.board {
+  width: 75vw;
+  margin: 6vh auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  margin: 60px 10px 0 10px;
+  position: relative;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  background-color: #a7e9af;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+}
+
+img {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  display: block;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  backface-visibility: hidden;
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.flipped .back-face {
+  transform: rotateY(0deg);
+}
+
+.flipped .front-face {
+  transform: rotateY(-180deg);
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter span {
+  font-family: "Roboto", sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: red;
+}
