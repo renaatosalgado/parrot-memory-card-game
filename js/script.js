@@ -1,5 +1,10 @@
 let CARDS_QUANTITY = 0;
 
+let FIRST_CARD = null;
+let SECOND_CARD = null;
+let FLIPPED_CARDS = 0;
+let PLAYS = 0;
+
 function loadPage() {
   alert("Hello, welcome to the Parrot Card Game!");
 
@@ -54,6 +59,49 @@ function playGame () {
 
 function comparator() { 
 	return Math.random() - 0.5; 
+}
+
+function flipCard(flippedCard) {
+    
+    if (flippedCard.classList.contains("flipped")) {
+        return;
+    }
+
+    if (SECOND_CARD !== null) {
+        console.log('bosta')
+        return;
+    }
+
+    PLAYS ++;
+
+    if (FIRST_CARD === null) {
+        FIRST_CARD = flippedCard;
+        
+    } else {
+        SECOND_CARD = flippedCard;
+
+        if (FIRST_CARD.innerHTML === SECOND_CARD.innerHTML) {
+            FLIPPED_CARDS += 2;          
+            resetCards();
+            verificarFimJogo();
+        } else {
+            setTimeout(unflipCards, 1000);
+        }
+        
+    }
+
+    flippedCard.classList.add("flipped");
+}
+
+function unflipCards () {
+    FIRST_CARD.classList.remove("flipped");
+    SECOND_CARD.classList.remove("flipped");
+    resetCards();
+}
+
+function resetCards () {
+    FIRST_CARD = null;
+    SECOND_CARD = null;
 }
 
 loadPage();

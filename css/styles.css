@@ -27,6 +27,10 @@ body {
   position: relative;
 }
 
+.card:hover{
+  cursor: pointer;
+}
+
 .face {
   width: 100%;
   height: 100%;
