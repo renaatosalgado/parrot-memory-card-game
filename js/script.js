@@ -83,7 +83,6 @@ function flipCard(flippedCard) {
         if (FIRST_CARD.innerHTML === SECOND_CARD.innerHTML) {
             FLIPPED_CARDS += 2;          
             resetCards();
-            verificarFimJogo();
         } else {
             setTimeout(unflipCards, 1000);
         }
